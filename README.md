@@ -1,7 +1,4 @@
-# BookStore-Group-27
-The Bookstore Outline By Group27:
-Abel Thomas,
-Christina Trujillo,
-Alexandria Taylor,
-Fabien Tassy, 
-Livan Torres
+Book Details
+The Bookstore Outline By:
+Abel Thomas, Group 27
+
