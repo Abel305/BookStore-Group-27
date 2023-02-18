@@ -1,7 +1,13 @@
-# BookStore-Group-27
-The Bookstore Outline By Group27:
-Abel Thomas,
-Christina Trujillo,
-Alexandria Taylor,
-Fabien Tassy, 
-Livan Torres
+# Wish List Feature
+
+## Database
+NoSQL
+
+## Programming Language
+Java
+possibly python
+
+## Framework
+SpringBoot
+possibly django
+
