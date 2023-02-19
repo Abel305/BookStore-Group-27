@@ -1,13 +1,1 @@
-# Wish List Feature
-
-## Database
-NoSQL
-
-## Programming Language
-Java
-possibly python
-
-## Framework
-SpringBoot
-possibly django
-
+this branch has all the sql scripts to create the database schema
