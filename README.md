@@ -1,7 +1,9 @@
 # BookStore-Group-27
-The Bookstore Outline By Group27:
-Abel Thomas,
-Christina Trujillo,
-Alexandria Taylor,
-Fabien Tassy, 
-Livan Torres
+| feature                    | team member         |
+|----------------------------|---------------------|
+| profile management         | Alexandria Thompson |
+| book details               | Abel Thomas         |
+| book rating and commenting | Fabien Tassy        |
+| book browsing and sorting  | Christina Trujillo  |
+| shopping cart              | Vanessa Taylor      |
+| wish list management       | Livan Torres        |
