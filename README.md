@@ -2,6 +2,7 @@
 The Bookstore Outline By Group27:
 Abel Thomas
 Christina Trujillo
-Alexandria Taylor
+Alexandria Thompson
+Vanessa Taylor
 Fabien Tassy
-Livan
+Livan Torres
