@@ -18,7 +18,7 @@ create table book_store.user (
 
 drop table if exists book_store.author;
 create table book_store.author (
-    author_pk int not null ,
+    author_pk varchar(8) not null ,
     author_first_name varchar(32) not null ,
     author_last_name varchar(32) not null ,
     author_publisher varchar(32) not null ,
@@ -30,7 +30,7 @@ create table book_store.author (
 
 drop table if exists book_store.book;
 create table book_store.book (
-    book_isbn int(13) not null ,
+    book_isbn varchar(13) not null ,
 
     book_name varchar(256) not null ,
     book_description varchar(1024),
@@ -39,12 +39,12 @@ create table book_store.book (
     book_genre varchar(128) not null ,
     book_price float not null ,
     book_copies_sold int,
-    book_rating float,
+    book_average_rating float,
 
     primary key (book_isbn),
 
     # TODO: use to query the author details for display (first and last name)
-    author_pk int not null ,
+    author_pk varchar(8) not null ,
     foreign key (author_pk) references book_store.author(author_pk)
 );
 
@@ -52,7 +52,7 @@ create table book_store.book (
 drop table if exists book_store.shopping_cart;
 create table book_store.shopping_cart (
     username varchar(32) not null ,
-    book_isbn int(13) not null ,
+    book_isbn varchar(13) not null ,
 
     foreign key (username) references book_store.user(username),
     foreign key (book_isbn) references book_store.book(book_isbn)
@@ -62,9 +62,9 @@ create table book_store.shopping_cart (
 
 drop table if exists book_store.credit_card;
 create table book_store.credit_card (
-    credit_card_number int(16) not null ,
-    credit_card_expiry_month int (2) not null ,
-    credit_card_expiry_year int (4) not null ,
+    credit_card_number varchar(16) not null ,
+    credit_card_expiry_month int(2) not null ,
+    credit_card_expiry_year int(4) not null ,
     credit_card_pin int(3) not null ,
     name varchar(128) not null ,
     billing_address varchar(512) not null ,
@@ -75,12 +75,13 @@ create table book_store.credit_card (
      foreign key (username) references book_store.user(username)
 );
 
+
 drop table if exists book_store.rating;
 create table book_store.rating (
-    username varchar(32),
-    book_isbn int(13),
-    rating int,
-    datestamp date,
+    username varchar(32) not null ,
+    book_isbn varchar(13) not null ,
+    book_rating int not null ,
+    datestamp date not null ,
 
     foreign key (username) references book_store.user(username),
     foreign key (book_isbn) references book_store.book(book_isbn)
@@ -89,12 +90,13 @@ create table book_store.rating (
     # TODO: add a trigger (on create and update) to update the average rating of the book
 );
 
+
 drop table if exists book_store.comment;
 create table book_store.comment (
-    username varchar(32),
-    book_isbn int(13),
-    datestamp date,
-    comment varchar(1024),
+    username varchar(32) not null ,
+    book_isbn varchar(13) not null ,
+    datestamp date not null ,
+    comment varchar(1024) not null ,
 
     foreign key (username) references book_store.user(username),
     foreign key (book_isbn) references book_store.book(book_isbn)
@@ -105,7 +107,7 @@ drop table if exists book_store.wishlist;
 create table book_store.wishlist (
     wishlist_name varchar(128) not null ,
     username varchar(128) not null ,
-    book_isbn int(13) ,
+    book_isbn varchar(13) ,
 
     foreign key (username) references book_store.user(username),
     foreign key (book_isbn) references book_store.book(book_isbn)
