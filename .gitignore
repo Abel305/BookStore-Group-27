@@ -1,0 +1,16 @@
+# directories to ignore
+.idea/
+
+# files to ignore
+file.txt
+
+# note: branches refer to a commit in the commit history
+
+# note: create many branches early in development and keep making branches for different tasks. merge the branches
+# when the tasks are completed. avoid large branches
+
+# note: `HEAD` usually points to a branch, which then points to a commit. the `HEAD` can be changed to point to a commit
+# directly instead with `git checkout <commit_hash>`
+
+
+
