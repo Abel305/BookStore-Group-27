@@ -30,6 +30,6 @@ class WishlistServerDemoApplicationTests {
 	@Test
 	public void givenUsername_whenGetWishlists_thenReturnJsonArray() throws Exception {
 		assertThat(restTemplate.getForObject("http://localhost:" + port + "/wishlist/get_wishlists", String.class))
-				.contains("username1");
+				.contains("[{\"wishlist_name\":\"wishlist_name1\",\"username\":\"username1\",\"book_isbn\":\"1234567890120\"}]");
 	}
 }
