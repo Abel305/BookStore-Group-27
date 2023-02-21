@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <object-set>
+    <schema path="book_store">
+      <view name="connecitons" query="show processlist;"/>
+      <view name="wishlist_view" query="select * from book_store.wishlist;"/>
+    </schema>
+  </object-set>
+</data>
