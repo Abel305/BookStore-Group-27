@@ -8,7 +8,6 @@ insert into book_store.author (author_pk, author_first_name, author_last_name, a
 
 insert into book_store.book(book_isbn, book_name, book_description, book_publisher, book_year_published, book_genre, book_price, book_copies_sold, book_average_rating, author_pk)
     value ('1234567890120', 'book_name1', 'book_description1', 'book_publisher1', 2023, 'book_genre1', 10.00, 100, 4.5, '12345670');
-
 insert into book_store.book(book_isbn, book_name, book_description, book_publisher, book_year_published, book_genre, book_price, book_copies_sold, book_average_rating, author_pk)
     value ('1234567890121', 'book_name2', 'book_description2', 'book_publisher1', 2023, 'book_genre1', 10.00, 100, 4.5, '12345670');
 
@@ -31,6 +30,5 @@ values ('username1', '1234567890120', '2023-01-01 00:00:01', 'comment1');
 
 insert into book_store.wishlist (wishlist_name, username, book_isbn)
     value ('wishlist_name1', 'username1', '1234567890120');
-
 insert into book_store.wishlist (wishlist_name, username, book_isbn)
     value ('wishlist_name1', 'username1', '1234567890121');
