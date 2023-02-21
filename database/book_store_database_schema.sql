@@ -30,7 +30,7 @@ create table book_store.author (
 
 drop table if exists book_store.book;
 create table book_store.book (
-    book_isbn int(13) not null ,
+    book_isbn varchar(13) not null ,
 
     book_name varchar(256) not null ,
     book_description varchar(1024),
@@ -39,7 +39,7 @@ create table book_store.book (
     book_genre varchar(128) not null ,
     book_price float not null ,
     book_copies_sold int,
-    book_rating float,
+    book_average_rating float,
 
     primary key (book_isbn),
 
@@ -52,7 +52,7 @@ create table book_store.book (
 drop table if exists book_store.shopping_cart;
 create table book_store.shopping_cart (
     username varchar(32) not null ,
-    book_isbn int(13) not null ,
+    book_isbn varchar(13) not null ,
 
     foreign key (username) references book_store.user(username),
     foreign key (book_isbn) references book_store.book(book_isbn)
@@ -62,7 +62,7 @@ create table book_store.shopping_cart (
 
 drop table if exists book_store.credit_card;
 create table book_store.credit_card (
-    credit_card_number int(16) not null ,
+    credit_card_number varchar(16) not null ,
     credit_card_expiry_month int (2) not null ,
     credit_card_expiry_year int (4) not null ,
     credit_card_pin int(3) not null ,
@@ -78,8 +78,8 @@ create table book_store.credit_card (
 drop table if exists book_store.rating;
 create table book_store.rating (
     username varchar(32),
-    book_isbn int(13),
-    rating int,
+    book_isbn varchar(13),
+    book_rating int,
     datestamp date,
 
     foreign key (username) references book_store.user(username),
@@ -92,7 +92,7 @@ create table book_store.rating (
 drop table if exists book_store.comment;
 create table book_store.comment (
     username varchar(32),
-    book_isbn int(13),
+    book_isbn varchar(13),
     datestamp date,
     comment varchar(1024),
 
@@ -105,7 +105,7 @@ drop table if exists book_store.wishlist;
 create table book_store.wishlist (
     wishlist_name varchar(128) not null ,
     username varchar(128) not null ,
-    book_isbn int(13) ,
+    book_isbn varchar(13) ,
 
     foreign key (username) references book_store.user(username),
     foreign key (book_isbn) references book_store.book(book_isbn)
