@@ -25,6 +25,7 @@ public class UserController {
             existingUser.setUsername(existingUser.getUsername());
             existingUser.setPassword(existingUser.getPassword());
             existingUser.setName(existingUser.getName());
+            existingUser.getEmailAddress(existingUser.getEmailAddress());
             existingUser.setHomeAddress(existingUser.getHomeAddress());
             userRepository.save(existingUser);
             return new ResponseEntity<>(HttpStatus.OK);
