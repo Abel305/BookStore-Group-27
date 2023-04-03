@@ -1,48 +1,55 @@
-package com.group27.group27;
+package com.group27.bookstore;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/GeekText")
 public class BookController {
 
-    @Value("${app.name}")
-    private String appName;
+    @Autowired
+    private BookService bookService;
 
-    @Value("${app.version}")
-    private String appVersion;
-    
-     @GetMapping("/version")
-    public String getAppDetails() {
-        return appName + " " + appVersion;
+    @GetMapping("/")
+    public String home() {
+        return "books.html";
+    }
+  
+    @GetMapping("/books") 
+    public List<Book> getBooks() {
+        return bookService.getBooks();
+    }  
+
+    @RequestMapping(value = "/genre", method = RequestMethod.GET)
+    public List<Book> getBooksByGenre(@RequestParam(value = "genre") String genre) {
+        List<Book> bookGenre = bookService.getByGenre(genre);
+        return bookGenre;
     }
 
-    @GetMapping("/bookdatabase")
-    public String bookDB_api() {
-        return "Books placed here: ";
+    @RequestMapping(value = "/topsellers", method = RequestMethod.GET)
+    public List<Book> getTopSellers() {
+        List<Book> topSellers = bookService.getTopSellers();
+        return topSellers;
     }
 
-    // gets individual book by title
-    //localhost:8080/bookdatabase/Hamlet
-    @GetMapping("/bookdatabase/{title}")
-    public String getBook(@PathVariable("title") String title) {
-        return "Fetching the book details for the title: " + title;
+    @GetMapping("/rating")
+    public List<Book> getBooksByRating(@RequestParam("rating") double rating) {
+        return bookService.getBooksByRating(rating);
     }
 
-    @PostMapping("/bookdatabase")
-    public String saveBook(@RequestBody Book book) {
-        return "Saving the book details to the database " + book;
-    }
-
-    @DeleteMapping
-    public String deleteBook(@RequestParam String title) {
-        return "Deleting the book details for title " + title;
+    @PatchMapping("/discount")
+    public ResponseEntity<String> discountBooksByPublisher(@RequestParam("publisher") String publisher,
+                                                        @RequestParam("discountPercent") double discountPercent) {
+        bookService.discountBooksByPublisher(publisher, discountPercent);
+        return ResponseEntity.ok("Discount applied successfully!");
     }
 
 }
