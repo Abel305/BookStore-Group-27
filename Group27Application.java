@@ -1,13 +1,13 @@
-package com.group27.group27;
+package com.group27.bookstore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Group27Application {
+public class BookstoreApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Group27Application.class, args);
+		SpringApplication.run(BookstoreApplication.class, args);
 	}
 
 }
