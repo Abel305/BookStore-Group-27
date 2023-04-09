@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "0819dcbe-7add-451a-a386-2fb35b14edfc",
+		"name": "Geek Text",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Rating",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 2,\n    \"rating\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8212/geektext/bookstore/3/ratings/createRating",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8212",
+					"path": [
+						"geektext",
+						"bookstore",
+						"3",
+						"ratings",
+						"createRating"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Avg Ratings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8212/geektext/bookstore/3/ratings/average",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8212",
+					"path": [
+						"geektext",
+						"bookstore",
+						"3",
+						"ratings",
+						"average"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 2,\n    \"comment\": \"I enjoyed it.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8212/geektext/bookstore/3/comments/createComment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8212",
+					"path": [
+						"geektext",
+						"bookstore",
+						"3",
+						"comments",
+						"createComment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8212/geektext/bookstore/3/comments/getComments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8212",
+					"path": [
+						"geektext",
+						"bookstore",
+						"3",
+						"comments",
+						"getComments"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
