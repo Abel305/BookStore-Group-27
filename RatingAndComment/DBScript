@@ -1,0 +1,29 @@
+use book_store;
+
+CREATE TABLE books (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL
+);
+
+-- Inserting 3 books
+INSERT INTO books (title, author, description, price)
+VALUES
+    ('To Kill a Mockingbird', 'Harper Lee', 'A novel set in the deep South that explores themes of racism and injustice.', 9.99),
+    ('1984', 'George Orwell', 'A dystopian novel that portrays a society under total government control.', 10.99),
+    ('Pride and Prejudice', 'Jane Austen', 'A classic novel that satirizes societal norms and expectations of marriage in 19th century England.', 8.99);
+
+-- Inserting 3 users
+INSERT INTO users (name, email)
+VALUES
+    ('Alice Johnson', 'alice.johnson@example.com'),
+    ('Bob Smith', 'bob.smith@example.com'),
+    ('Charlie Brown', 'charlie.brown@example.com');
